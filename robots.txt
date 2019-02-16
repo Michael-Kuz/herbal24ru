@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /core/
+Disallow: /controllers/
+Disallow: /objects/
+Disallow: /modules/
+Disallow: /lib/
+Disallow: /tmpl/
+Host: http://herbal24.ru
+Sitemap: http://herbal24.ru/sitemap.xml

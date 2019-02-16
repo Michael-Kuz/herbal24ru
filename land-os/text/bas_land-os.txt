@@ -1,0 +1,324 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
+--
+-- Хост: 127.0.0.1
+-- Время создания: Июн 18 2017 г., 13:08
+-- Версия сервера: 5.5.25
+-- Версия PHP: 5.3.13
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- База данных: `land-os`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `mkuz_content`
+--
+
+CREATE TABLE IF NOT EXISTS `mkuz_content` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `section_id` int(10) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `intro` text,
+  `icon` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+
+--
+-- Дамп данных таблицы `mkuz_content`
+--
+
+INSERT INTO `mkuz_content` (`id`, `section_id`, `title`, `intro`, `icon`) VALUES
+(1, 1, 'Срок разработки<br>не более 15 дней.', NULL, 'advent_pic_1.png'),
+(2, 1, 'Высокое<br>качество работ.', NULL, 'advent_pic_2.png'),
+(3, 1, 'Делаем<br>все под ключ.', NULL, 'advent_pic_3.png'),
+(4, 1, 'Бесплатный запуск<br>рекламной компании<br>в Яндекс-Директ.', 'Бюджет на запуск рекламной компании уже входит в стоимость создания лендинга.', 'advent_pic_4.png'),
+(5, 1, 'Делаем<br>мультилендинг.', 'Мультилендинг  содержит адаптивные заголовки, которые меняются в зависимости от поискового запроса, по которому пришел потенциальный клиента на Вашу страницу. Эффективность страницы увеличивается в разы по сравнению с обычным статичным лендингом.', 'advent_pic_5.png'),
+(6, 1, 'Проводим<br>SPLIT - тестирование.', 'Например, берётся цена и изменяется в сторону увеличения. Дальше половина клиентов видят повышенную цену, а другая половина – старую цену. И смотрится, от какой половины в итоге больше заявок. Очень часто получается, что при увеличении цены на 50%, число заявок уменьшается лишь на 10% или не изменяется вовсе.  Возможен даже неожиданный эффект, когда количество продаж становится даже больше, поэтому прибыль вырастает сильнее, чем цена.', 'advent_pic_6.png'),
+(7, 1, 'Без предоплаты!', NULL, 'advent_pic_7.png'),
+(8, 2, 'Вы оставляете заявку.', NULL, 'steps_pic_1.png'),
+(9, 2, 'Мы созваниваемся с Вами и консультируем Вас.', NULL, 'steps_pic_2.png'),
+(10, 2, 'Мы готовим прототип, в который Вы можете вносить коррективы.', NULL, 'steps_pic_3.png'),
+(11, 2, 'Вы утверждаете прототип и оплачиваете работу по дизайн-макету лендинга.', NULL, 'steps_pic_4.png'),
+(12, 2, 'Я разрабатываю лендинг, в который Вы также можете вносить коррективы.', NULL, 'steps_pic_5.png'),
+(13, 2, 'Запуск рекламы и получение первых потенциальных клиентов.', NULL, 'steps_pic_6.png'),
+(14, 2, 'Оплата лендинга и передача всех исходников.', NULL, 'steps_pic_4.png'),
+(15, 2, 'Обучаем работе с лендингом, пост-консультация.', NULL, 'steps_pic_8.png'),
+(16, 3, 'Наши лендинги оптимизированы под мобильные устройства.', NULL, 'effic_pic_1.png'),
+(17, 3, 'Мы использую jQuery – библиотеку JavaScript,', 'которая позволяет делать очень приятную анимацию. Это делает Ваш лендинг более красивым и современным, что, безусловно, положительно скажется на конверсии.', 'steps_pic_5.png'),
+(18, 3, 'Настраиваем SMS оповещения.', 'По Вашему желанию мы сможем сделать так, чтобы сразу после заявки Вам отправлялась SMS с номером телефона клиента. И Вы сразу сможете позвонить ему. Клиент будет точно приятно шокирован от Вашей скорости!', 'effic_pic_2.png'),
+(19, 3, 'Настройка мультилендинга.', 'Настраиваем автоматическую подстройку заголовков в лэндинге на соответствие заголовкам  в Вашей рекламной компании в Яндекс-Директе.', 'advent_pic_5.png'),
+(20, 3, 'Оптимизируем рекламную кампанию.', 'Сюда входит анализ каждого ключевого запроса: удаление неэффективных, снижение цен на слабоэффективные и повышение цен на высокоэффективные с целью повышение числа клиентов. В результате, Вы гарантированно получаете максимальное число заявок при минимальной её стоимости.', 'effic_pic_3.png'),
+(21, 3, 'Проводим SPLIT-тесты.', 'Например, берётся цена и изменяется в сторону увеличения. Дальше половина клиентов видят повышенную цену, а другая половина – старую цену. И смотрится, от какой половины в итоге больше прибыль. Очень часто получается, что при увеличении цены на 50%, число заявок уменьшается лишь на 10% или не изменяется вовсе.  Возможен даже неожиданный эффект, когда количество продаж становится даже больше, поэтому прибыль вырастает сильнее, чем цена.', 'advent_pic_6.png');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `mkuz_headlines`
+--
+
+CREATE TABLE IF NOT EXISTS `mkuz_headlines` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `utm_term` varchar(255) DEFAULT NULL,
+  `headline` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `mkuz_headlines`
+--
+
+INSERT INTO `mkuz_headlines` (`id`, `utm_term`, `headline`) VALUES
+(1, 'Лендинг', 'Лендинг без предоплаты'),
+(2, 'Landing page', 'Landing page без предоплаты');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `mkuz_lan_camps`
+--
+
+CREATE TABLE IF NOT EXISTS `mkuz_lan_camps` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ip` bigint(20) NOT NULL,
+  `utm_source` varchar(255) DEFAULT NULL,
+  `utm_campaing` varchar(255) DEFAULT NULL,
+  `utm_content` varchar(255) DEFAULT NULL,
+  `utm_term` varchar(255) DEFAULT NULL,
+  `ref` varchar(500) DEFAULT NULL,
+  `date` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `mkuz_lan_camps`
+--
+
+INSERT INTO `mkuz_lan_camps` (`id`, `ip`, `utm_source`, `utm_campaing`, `utm_content`, `utm_term`, `ref`, `date`) VALUES
+(1, 2130706433, NULL, NULL, NULL, NULL, NULL, 1486926043);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `mkuz_lan_orders`
+--
+
+CREATE TABLE IF NOT EXISTS `mkuz_lan_orders` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(11,0) unsigned DEFAULT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `date_order` int(10) unsigned NOT NULL,
+  `date_confirm` int(10) unsigned DEFAULT NULL,
+  `date_pay` int(10) unsigned DEFAULT NULL,
+  `date_cancel` int(10) unsigned DEFAULT NULL,
+  `camp_id` int(10) unsigned DEFAULT NULL,
+  `split` varchar(255) DEFAULT NULL,
+  `func` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=158 ;
+
+--
+-- Дамп данных таблицы `mkuz_lan_orders`
+--
+
+INSERT INTO `mkuz_lan_orders` (`id`, `name`, `price`, `phone`, `email`, `date_order`, `date_confirm`, `date_pay`, `date_cancel`, `camp_id`, `split`, `func`) VALUES
+(1, 'Михаил', '5000', '0975556458', '', 1486926089, NULL, NULL, NULL, NULL, 'no_anima', 'landing_order_top'),
+(2, 'Петя', NULL, '9652841509', '', 1486926157, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(3, 'mike', NULL, '9652841509', '', 1486926348, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(4, 'Михаил', NULL, '0975556458', 'michael.kyz@gmail.com', 1487787247, NULL, NULL, NULL, NULL, 'no_anima', 'landing_order'),
+(5, 'Михаил', NULL, '9755564580', '', 1487787526, NULL, NULL, NULL, NULL, 'no_anima', 'landing_order'),
+(6, 'Вася', NULL, '0975556458', 'michael.kyz@gmail.com', 1491566856, NULL, NULL, NULL, NULL, 'anima', 'landing_order_bottom'),
+(7, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491571231, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(8, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491571560, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(9, 'Михаил', '7000', '9652841509', 'michael.kyz@gmail.com', 1491571782, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(10, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491572256, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(11, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491572267, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(12, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491572337, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(13, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491572440, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(14, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491573945, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(15, 'Михаил', '5000', '9652841509', 'michael.kyz@gmail.com', 1491577353, NULL, 7787887, NULL, NULL, 'anima', 'landing_order_top'),
+(16, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491583598, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(17, 'Вася', NULL, '9652841509', 'michael.kyz@gmail.com', 1491584625, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(18, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491755907, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(19, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491755936, NULL, NULL, NULL, NULL, 'anima', 'landing_order_bottom'),
+(20, 'Михаил', '4000', '9652841509', 'michael.kyz@gmail.com', 1491755950, 8656644, NULL, NULL, NULL, 'anima', 'landing_order'),
+(21, 'Михаил', '6000', '9652841509', 'michael.kyz@gmail.com', 1491757109, 576878787, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(22, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491818131, NULL, NULL, NULL, NULL, 'anima', 'landing_order'),
+(23, 'Оля', NULL, '9652841509', 'michael.kyz@gmail.com', 1491818712, 1496088000, NULL, NULL, NULL, 'anima', 'landing_order_bottom'),
+(24, 'Михаил', '30000', '9652841509', 'michael.kyz@gmail.com', 1491832732, 1494878400, 1495656000, 1495742400, NULL, 'anima', 'landing_order_top'),
+(25, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491833479, 1494360000, 1494360000, NULL, NULL, 'anima', 'landing_order_top'),
+(26, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1491894398, 1494878400, 1500494400, NULL, NULL, 'no_anima', 'landing_order_top'),
+(27, 'Виктор', '5000', '9652841509', 'michael.kyz@gmail.com', 1492780296, 1492718400, 1493748317, 1495569600, NULL, 'no_anima', 'landing_order_bottom'),
+(28, 'Петя', '10000', '9652841509', 'michael.kyz@gmail.com', 1492780296, 1492718400, 1493748317, 1495569600, NULL, 'no_anima', 'landing_order'),
+(29, 'Петя', '10000', '9652841509', 'michael.kyz@gmail.com', 1492780296, 1492718400, 1493748317, 1495569600, NULL, NULL, NULL),
+(30, 'Петя', '10000', '9652841509', 'michael.kyz@gmail.com', 1492780296, 1492718400, 1493748317, 1495569600, NULL, NULL, NULL),
+(31, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'landing_order_top'),
+(32, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(33, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(34, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(35, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(36, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(37, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(38, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(39, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(40, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(41, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, NULL, NULL),
+(42, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(43, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(44, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(45, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(46, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(47, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(48, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(49, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(50, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(51, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(52, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(53, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(54, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(55, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(56, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(57, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(58, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(59, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(60, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(61, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(62, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(63, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(64, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(65, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(66, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(67, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(68, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(69, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(70, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(71, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(72, 'Михаилуау', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(73, 'Михаил', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(74, 'Петрвцвац', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(75, 'Петрвцвац', NULL, '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(76, 'Test', '7', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(77, 'Test11111', '22', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(78, 'Test11111', '22', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(79, 'Test11111', '22', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(80, 'Test11111', '22', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(81, 'Test11111', '22', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(82, 'Test11111', '22', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(83, 'Test11111', '22', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(84, 'Test11111', '22', '9652841509', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(85, 'Test11111', '22', '0975556458', 'michael.kyz@gmail.com', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(86, 'Test33333', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(87, 'Test33333', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(88, 'Test33333', '22', 'ghyjnbvfgh', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(89, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(90, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(91, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(92, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(93, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(94, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(95, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(96, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(97, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(98, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(99, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(100, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(101, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(102, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(103, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(104, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(105, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(107, 'Test4444444', '30', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(108, 'Test11111111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'update'),
+(109, 'Test4444444', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(110, 'Test8888', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(113, 'Test8888', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(114, 'Test8888', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'anima', 'save'),
+(116, 'Test44', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(117, 'Test44', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(120, 'Test44', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(123, 'Tes111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(124, 'Tes111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(125, 'Tes111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(126, 'Tes111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'update'),
+(127, 'Tes111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(128, 'Tes111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'update'),
+(129, '11', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(146, '11', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'add'),
+(147, '11', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(148, '11', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(149, '11', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(150, '112', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(151, '112', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(152, '112', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(153, '1123333', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(154, '112111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(155, '112111', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save'),
+(157, '112111666', '22', '9652841509', '', 1496396200, NULL, NULL, NULL, NULL, 'no_anima', 'save');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `mkuz_menu`
+--
+
+CREATE TABLE IF NOT EXISTS `mkuz_menu` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `type` int(10) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `parent_id` int(10) unsigned DEFAULT NULL,
+  `external` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Дамп данных таблицы `mkuz_menu`
+--
+
+INSERT INTO `mkuz_menu` (`id`, `type`, `title`, `link`, `parent_id`, `external`) VALUES
+(1, 1, 'Преимущества', '#advantages', NULL, 0),
+(2, 1, 'Порядок работы', '#steps', NULL, 0),
+(3, 1, 'Эффективность', '#efficiency', NULL, 0),
+(4, 1, 'Работы и цены', '#works', NULL, 0),
+(5, 1, 'Гарантия', '#guarantee', NULL, 0),
+(6, 1, 'Оформить заявку', '#', NULL, 0),
+(7, 1, 'Контакты', '#contacts', NULL, 0),
+(8, 2, 'Главная', '/adminmain/adminindex', NULL, 0),
+(9, 2, 'Заказы', '/adminmain/adminorders', NULL, 0),
+(10, 2, 'Статистика', '/adminmain/adminstatistics', NULL, 0),
+(11, 2, 'Настройки', '/adminmain/adminsettings', NULL, 0),
+(12, 2, 'Выход', '/function.php?func=logout', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `mkuz_works`
+--
+
+CREATE TABLE IF NOT EXISTS `mkuz_works` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci NOT NULL,
+  `full_img` varchar(255) NOT NULL,
+  `price` int(10) unsigned DEFAULT NULL,
+  `bid` int(10) unsigned DEFAULT NULL,
+  `n_per_week` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Дамп данных таблицы `mkuz_works`
+--
+
+INSERT INTO `mkuz_works` (`id`, `title`, `icon`, `full_img`, `price`, `bid`, `n_per_week`) VALUES
+(1, NULL, 'icon_herbal24.png', 'full_herbal24.png', 15000, 200, 5),
+(2, NULL, 'icon_herbal24.png', 'full_herbal24.png', 15000, 200, 5),
+(3, NULL, 'icon_herbal24.png', 'full_herbal24.png', 15000, 200, 5),
+(4, NULL, 'icon_herbal24.png', 'full_herbal24.png', 15000, 200, 5);

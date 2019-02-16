@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Гербалайф|Herbalife|Гербалайф Москва|Спортивное питание Гербалайф</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="index, follow" />
+	<meta name="author" content="Михаил Кузьменко" />
+	<meta name="description" content="Гербалайф|Herbalife|Гербалайф Москва|Сбалансированное питание Гербалайф|Спортивное питание Гербалайф" />
+	<meta name="keywords" content="гербалайф, herbalife, сбалансированное питание, спортивное питание, гербалайф Москва, гербалайф официальный сайт, гербалайф для похудения, диета, как похудеть, правильное питание, витамины" />
+	<meta name='wmail-verification' content='510778a5d69af653' />
+	<script type="text/javascript" src="js/jquery_1_11_1_min.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link rel="stylesheet" href="css/main.css" type="text/css" />
+</head>
+<body onload="start_slider()">
+<?php include_once("analyticstracking.php") ?>
+	<div id="container">
+		<header>
+			<img id="logo_herbalife" src="images/logo_herbalife.png" alt="логотип Гербалайф" title="логотип Гербалайф" />
+			<div id="auth">	
+				<?php if( !$this->info_user ) { ?>
+					<p><?=$this->auth_message?></p>
+					<div id="login">
+						<form name="auth" action="<?=$this->auth?>" method="post" >
+							<input type="text" name="auth_login"  placeholder="Логин" />
+							<input type="text" name="auth_password"  placeholder="Пароль" />
+							<input type="submit" name="auth" value="ВОЙТИ" />
+						</form>
+					</div>
+					<div id="links_reset">
+						<a id="l_login" href="<?=$this->remind?>">Забыли логин?</a>
+						<a id="l_password" href="<?=$this->reset?>">Забыли пароль?</a>
+						<a id="l_registr" href="<?=$this->reg?>">РЕГИСТРАЦИЯ</a>
+					</div>
+				<?php }
+				else{ ?>
+					<form name="auth" action="<?=$this->auth_logout?>" method="post" >
+						<div>
+							<p id="auth_welcome_string">Здравтвуйте,<b><?=$this->info_user["name"]?></b>!</p>
+							<input type="submit" name="auth_logout" value="ВЫЙТЕ" />
+						</div>
+					</form>
+				<?php } ?>
+			</div>	
+			<div id="cart">
+				<a href="<?=$this->cart_link?>">
+					<img src="images/icon_cart.png" alt="иконка корзины" title="иконка корзины" />
+					<div>
+						<p>МОЯ КОРЗИНА</p>
+						<p>В корзине <span><?=$this->cart_count?></span> <?=$this->cart_word?> на <span><?=$this->cart_summa?></span> руб.</p>
+					</div>	
+				</a>
+			</div>
+		</header>	
+		<div class="clear"></div>
+		<nav id="horizontal">
+			<ul>
+				<li>
+					<a href="<?=$this->index?>" <?php if( $this->view == "" ){?>class="active" <?php } ?> >Главная</a>
+				</li>
+				<li>
+					<a href="<?=$this->link_our_results?>" target="Результаты нашего клуба" >Результаты</a>
+				</li>
+				<li>
+					<a href="<?=$this->link_payment?>" <?php if( $this->view == "payment" ){?>class="active" <?php } ?> >Оплата</a>
+				</li>
+				<li>
+					<a href="<?=$this->link_delivery?>" <?php if( $this->view == "delivery" ){?>class="active" <?php } ?> >Доставка</a>
+				</li>
+				<li>
+					<a href="<?=$this->link_contacts?>" <?php if( $this->view == "contacts" ){?>class="active" <?php } ?> >Контакты</a>
+				</li>
+			</ul>
+			<form name="search" action="<?=$this->link_search?>" method="get" >
+				<table>
+					<tr>
+						<td><input type="text" name="q" placeholder="Поиск" ></td>
+						<td><input type="submit"  name="search" value="" ></td>
+					</tr>
+				</table>
+			</form>
+		</nav>
+		<div class="clear"></div>
+		<div id="content">
+			<div id="promo_left">
+				<div id="promo_image">
+					<img src="images/slide_discount.png" alt="купить Гербалайф со скидкой" title="купить Гербалайф со скидкой" />
+				</div>
+			</div>
+			<div id="promo_right">
+				<div id="inquiry">
+					<p>ОСТАВЬТЕ ВАШУ ЗАЯВКУ</p>
+					<form name="inquiry" action="<?=$this->inquiry?>" method="post">
+						<table>
+							<tr>
+								<td>
+									<input type="text" name="inq_name" value="<?=$this->inq_name?>" required="required" autofocus="autofocus" placeholder="Ваше имя" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="tel" name="inq_tel" value="<?=$this->inq_tel?>" required="required" placeholder="Телефон" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="email" name="inq_email" value="<?=$this->inq_email?>" placeholder="E-mail" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<textarea name="inq_message" cols="20" rows="5" placeholder="Сообщение"><?=$this->inq_message?></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="submit" value="ОТПРАВИТЬ" />
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div id="promo_center">
+				<div id="promo_info">
+					<?php if( $this->promo_info ) { 
+						include "$this->promo_info";
+					}?>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="left_col">
+				<div class="left_block">
+					<div class="left_header"><p>КАТАЛОГ ПРОДУКЦИИ</p></div>
+					<div class="left_content">
+						<nav>
+							<ul>
+								<?php for( $i=0; $i<count($this->items); $i++ ) { ?>
+									<li>
+										<a href="<?=$this->items[$i]["link"]?>" <?php if( $this->section_id == "section?id=".($i+1) || ( $this->section_id == "" && $i == 0 ) ){?> class="active" <?php } ?> >
+											<span><?=$this->items[$i]["menu"]?></span>
+										</a>	
+									</li>
+								<?php } ?>
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+			<div id="right_col">
+				<div class="right_block">
+					Правый блок
+					<script type="text/javascript" src="//vk.com/js/api/openapi.js?115"></script>
+					<!-- VK Widget -->
+					<div id="vk_groups"></div>
+					<script type="text/javascript">
+						VK.Widgets.Group("vk_groups", {mode: 1, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '7DBD48'}, 55377896);
+					</script>
+				</div>
+			</div>
+			<div id="center_col">
+				<?php include "content_".$this->content.".tpl"; ?>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+		<footer>
+			<div id="f_sep_1"></div>
+			<nav>
+				<ul>
+					<li>
+						<a href="<?=$this->index?>" <?php if( $this->view == "" ){?>class="active" <?php } ?> >Главная</a>
+					</li>
+					<li>
+						<a href="<?=$this->link_our_results?>" target="Результаты нашего клуба" >Результаты</a>
+					</li>
+					<li>
+						<a href="<?=$this->link_payment?>" <?php if( $this->view == "payment" ){?>class="active" <?php } ?> >Оплата</a>
+					</li>
+					<li>
+						<a href="<?=$this->link_delivery?>" <?php if( $this->view == "delivery" ){?>class="active" <?php } ?> >Доставка</a>
+					</li>
+					<li>
+						<a href="<?=$this->link_contacts?>" <?php if( $this->view == "contacts" ){?>class="active" <?php } ?> >Контакты</a>
+					</li>
+				</ul>
+			</nav>
+			<form name="search" action="<?=$this->link_search?>" method="get" >
+				<table>
+					<tr>
+						<td><input type="text" name="q" placeholder="Поиск" ></td>
+						<td><input type="submit"  name="search" value="" ></td>
+					</tr>
+				</table>
+			</form>
+			<p>Copyright &copy; 2014 Кузьменко Михаил. Все права защищены.</p>
+			<div id="counter">
+				<?php include_once("counter.php") ?>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
